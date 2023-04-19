@@ -1,0 +1,70 @@
+/*Crie um algoritmo onde o usuário deve entrar com a altura que deve ser maior que zero e sexo
+(M)asculino e (F)eminino, se a altura for menor ou igual a zero o resultado dos itens abaixo deve
+ser apresentado como saída:
+a. A maior e a menor altura encontradas;
+b. A média de altura das mulheres;
+c. A média de altura dos homens;
+d. O percentual de mulheres e homens da população;
+*/
+
+package e5_lista;
+import java.util.Scanner;
+
+/**
+ *
+ * @author reqtr
+ */
+public class E5_Lista {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner (System.in);
+        double altura = 1;
+        int sexo = 0;
+        double alturaMax = 0;
+        double alturaMin = 300;
+        double alturaM = 0;
+        double alturaF = 0;
+        double homens = 0;
+        double mulheres = 0;
+        
+        while (altura > 0){
+        System.out.println("Digite sua altura:");
+        altura = sc.nextDouble ();
+        if (altura > 0){
+        System.out.println("Qual o seu sexo, digite 1 para masculino e 2 para feminino:");
+        sexo = sc.nextInt();
+        
+        if (sexo == 1){
+            alturaM = alturaM + altura;
+            homens = (homens +1);
+        }
+        if (sexo == 2){
+            alturaF = alturaF + altura;
+            mulheres = (mulheres + 1);
+        }
+        if (altura > alturaMax){
+            alturaMax = altura;
+        }
+        if (altura < alturaMin){
+            alturaMin = altura;
+        }
+        }
+        else {
+        System.out.println("A maior e a menor alturas sao: " + alturaMax + " e " + alturaMin + " respectivamente");
+        System.out.println("A media das alturas das mulheres e: " + (alturaF / mulheres) );
+        System.out.println("A media das alturas dos homens e: " + (alturaM / homens) );
+        System.out.printf("O percentual de homens e " + ((homens/(homens + mulheres)) * 100) + "% e o percentual de mulheres e:" + ((mulheres/(homens + mulheres)) * 100 ) + "%");
+                }
+        }
+      
+    }
+}
+
+        
+           
+    
+
